@@ -30,7 +30,7 @@ jobs:
       - name: Run Tests
         env:
           PYTHONPATH: ./src
-        run: pytest *.py
+        run: pytest src/ *.py
 
   deploy-to-impaas:
     needs: python-formatting
