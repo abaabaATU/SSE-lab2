@@ -15,6 +15,23 @@ jobs:
       - name: Run flake8
         run: flake8 .
 
+  run-tests:
+    needs: python-formatting
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+      - name: Install Dependencies
+        run: pip install pytest
+      - name: Run Tests
+        env:
+          PYTHONPATH: ./src
+        run: pytest *.py
+
   deploy-to-impaas:
     needs: python-formatting
     runs-on: ubuntu-latest
@@ -24,7 +41,7 @@ jobs:
       - name: ImPaaS-Deploy
         uses: /impaas/impaas-deploy@v3
         with:
-          app-name: yf724-sse-app
+          app-name: tt3024-sse-app
           deployment-token: ${{ secrets.IMPAAS_DEPLOY-TOKEN }}
           method: PLATFORM
         
