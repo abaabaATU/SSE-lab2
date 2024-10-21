@@ -13,6 +13,7 @@ def submit():
     input_age = request.form.get("age")
     return render_template("hello.html", name=input_name, age=input_age)
 
+
 def process_query(query):
     query = query.lower()
     if query == "dinosaurs":
