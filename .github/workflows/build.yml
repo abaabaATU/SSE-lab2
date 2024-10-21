@@ -21,11 +21,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-       - name: ImPaaS-Deploy
-         uses: /impaas/impaas-deploy@v3
-         with:
-           app-name: tt3024-sse-app
-           deployment-token: ${{ secrets.IMPAAS_DEPLOY-TOKEN }}
-           method: PLATFORM
+      - name: ImPaaS-Deploy
+        uses: /impaas/impaas-deploy@v3
+        with:
+          app-name: tt3024-sse-app
+          deployment-token: ${{ secrets.IMPAAS_DEPLOY-TOKEN }}
+          method: PLATFORM
         
