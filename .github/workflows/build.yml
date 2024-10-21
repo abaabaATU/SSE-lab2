@@ -15,17 +15,17 @@ jobs:
       - name: Run flake8
         run: flake8 .
 
-deploy-to-impaas:
-  needs: python-formatting
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+  deploy-to-impaas:
+    needs: python-formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-     - name: ImPaaS-Deploy
-       uses: /impaas/impaas-deploy@v3
-       with:
-         app-name: tt3024-sse-app
-         deployment-token: ${{ secrets.1eb2f790571519883b4fbecdce1e9a437b6c049deb67c958d979cb073bed61a8 }}
-         method: PLATFORM
+       - name: ImPaaS-Deploy
+         uses: /impaas/impaas-deploy@v3
+         with:
+           app-name: tt3024-sse-app
+           deployment-token: ${{ secrets.IMPAAS_DEPLOY-TOKEN }}
+           method: PLATFORM
         
