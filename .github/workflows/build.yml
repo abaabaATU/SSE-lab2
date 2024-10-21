@@ -24,7 +24,7 @@ jobs:
       - name: ImPaaS-Deploy
         uses: /impaas/impaas-deploy@v3
         with:
-          app-name: tt3024-sse-app
+          app-name: yf724-sse-app
           deployment-token: ${{ secrets.IMPAAS_DEPLOY-TOKEN }}
           method: PLATFORM
         
